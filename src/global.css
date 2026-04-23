@@ -1,0 +1,14 @@
+body { min-height: 100vh; }
+button { font-family: var(--font-sans); }
+ul { padding-left: 0; }
+
+.view-fade { animation: fadeIn 320ms var(--ease-out); }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+@media (max-width: 900px) {
+  section [style*="grid-template-columns: 200px 1fr 1fr"] { grid-template-columns: 1fr !important; gap: 16px !important; }
+  section [style*="grid-template-columns: 2fr 1.5fr 3fr"] { grid-template-columns: 1fr !important; gap: 8px !important; }
+  section [style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; }
+  section [style*="grid-template-columns: 1fr 2fr"] { grid-template-columns: 1fr !important; }
+  section [style*="grid-template-columns: auto 1fr"] { grid-template-columns: 1fr !important; }
+}

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Radius Red Light Therapy — Health Guides</title>
+<link rel="stylesheet" href="assets/colors_and_type.css" />
+<link rel="icon" type="image/png" href="assets/logo-mark.png" />
+<style>
+  body { min-height: 100vh; }
+  button { font-family: var(--font-sans); }
+  ul { padding-left: 0; }
+  /* smooth mode-switch fade */
+  .view-fade { animation: fadeIn 320ms var(--ease-out); }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+  /* Responsive fallback */
+  @media (max-width: 900px) {
+    section [style*="grid-template-columns: 200px 1fr 1fr"] { grid-template-columns: 1fr !important; gap: 16px !important; }
+    section [style*="grid-template-columns: 2fr 1.5fr 3fr"] { grid-template-columns: 1fr !important; gap: 8px !important; }
+    section [style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; }
+    section [style*="grid-template-columns: 1fr 2fr"] { grid-template-columns: 1fr !important; }
+    section [style*="grid-template-columns: auto 1fr"] { grid-template-columns: 1fr !important; }
+  }
+</style>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="src/shared.js?v=2"></script>
+<script src="src/modes.js?v=2"></script>
+<script type="text/babel" src="src/app-home.jsx?v=2"></script>
+<script type="text/babel" src="src/app-mode.jsx?v=2"></script>
+<script type="text/babel">
+const { useState, useEffect } = React;
+
+function App() {
+  // Persist UI state — makes the "Print" link send user to same view they were on
+  const [view, setView] = useState(() => localStorage.getItem('radius-view') || 'home'); // 'home' | 'mode'
+  const [modeId, setModeId] = useState(() => localStorage.getItem('radius-mode') || 'weightLoss');
+  const [duration, setDuration] = useState(() => localStorage.getItem('radius-duration') || 'silver');
+
+  useEffect(() => { localStorage.setItem('radius-view', view); }, [view]);
+  useEffect(() => { localStorage.setItem('radius-mode', modeId); }, [modeId]);
+  useEffect(() => { localStorage.setItem('radius-duration', duration); }, [duration]);
+
+  const goToMode = (id) => { setModeId(id); setView('mode'); window.scrollTo({ top: 0, behavior: 'instant' }); };
+  const goHome = () => { setView('home'); window.scrollTo({ top: 0, behavior: 'instant' }); };
+
+  return (
+    <div data-screen-label={view === 'home' ? '00 Home' : `Mode · ${window.MODES[modeId].name} · ${duration}`}>
+      <TopNav duration={duration} setDuration={setDuration} onHome={goHome} view={view} />
+      <div className="view-fade" key={view + modeId}>
+        {view === 'home'
+          ? <Home onPick={goToMode} duration={duration} setDuration={setDuration} />
+          : <ModePage modeId={modeId} duration={duration} onBack={goHome} />}
+      </div>
+
+      {/* Footer */}
+      <footer style={{ borderTop: '1px solid var(--border-subtle)', background: 'var(--black)' }}>
+        {/* IP & trademark block */}
+        <div style={{ maxWidth: 'var(--page-max)', margin: '0 auto', padding: '56px 28px 32px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 48, borderBottom: '1px solid var(--border-subtle)', paddingBottom: 32 }}>
+            <div>
+              <div style={{ fontSize: 11, letterSpacing: 'var(--tr-eyebrow)', textTransform: 'uppercase', color: 'var(--accent)', fontWeight: 600, marginBottom: 12 }}>Intellectual Property</div>
+              <p style={{ fontSize: 12, color: 'var(--fg-3)', lineHeight: 1.6, margin: 0 }}>
+                © 2026 Radius Chiropractic PLLC. All rights reserved. Radius™, Radius Red Light Therapy™, Radius Super Stack™, and The Protocol™ are trademarks of Radius Chiropractic PLLC.
+              </p>
+              <p style={{ fontSize: 12, color: 'var(--fg-3)', lineHeight: 1.6, marginTop: 10 }}>
+                No part of this guide may be reproduced, distributed, resold, or transmitted in any form or by any means — electronic, mechanical, photocopying, recording, or otherwise — without the prior written permission of Radius Chiropractic PLLC. Unauthorized use is strictly prohibited.
+              </p>
+            </div>
+            <div>
+              <div style={{ fontSize: 11, letterSpacing: 'var(--tr-eyebrow)', textTransform: 'uppercase', color: 'var(--accent)', fontWeight: 600, marginBottom: 12 }}>Third-Party Trademarks</div>
+              <p style={{ fontSize: 12, color: 'var(--fg-3)', lineHeight: 1.6, margin: 0 }}>
+                Dr. Mercola® is a registered trademark of Dr. Joseph Mercola. Pure Encapsulations® and Renual® are registered trademarks of Pure Encapsulations, LLC. Earth Harmony™ and its methylene blue formulations are trademarks of Earth Harmony Naturals. Renue Blue™ is a trademark of its respective owner. Drink HRW™ and Rejuvenation™ hydrogen water tablets are trademarks of Natural Wellness Now Health Products, Inc. Toniiq® is a registered trademark of Toniiq, Inc. Dahlia Health™ and Dahlia Pinnacle™ are trademarks of Dahlia Health, Inc.
+              </p>
+              <p style={{ fontSize: 12, color: 'var(--fg-3)', lineHeight: 1.6, marginTop: 10 }}>
+                All third-party trademarks are the property of their respective owners. Use of these names does not imply endorsement, affiliation, or sponsorship.
+              </p>
+              <p style={{ fontSize: 12, color: 'var(--fg-3)', lineHeight: 1.6, marginTop: 10 }}>
+                Guided practice videos referenced in this guide are the intellectual property of their respective creators: Wim Hof (Wim Hof Method®), Master Faye Yip / Li Hui, Dr. Melissa Gallagher (Lymphatic Therapy Services), and Stanley Rosenberg. Linked with attribution for educational reference only; Radius Chiropractic PLLC is not affiliated with and does not endorse these creators.
+              </p>
+            </div>
+          </div>
+
+          {/* Medical disclaimer separator */}
+          <div style={{ paddingTop: 24, paddingBottom: 8 }}>
+            <div style={{ fontSize: 11, letterSpacing: 'var(--tr-eyebrow)', textTransform: 'uppercase', color: 'var(--fg-3)', fontWeight: 600, marginBottom: 8 }}>Educational Use — Not Medical Advice</div>
+            <p style={{ fontSize: 12, color: 'var(--fg-3)', lineHeight: 1.6, margin: 0 }}>
+              The information in this guide is intended for educational purposes only and is not a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or other qualified health provider with any questions you may have. Never disregard professional medical advice or delay in seeking it because of something you have read in this guide.
+            </p>
+          </div>
+        </div>
+
+        {/* Brand footer row */}
+        <div style={{ borderTop: '1px solid var(--border-subtle)', padding: '28px', background: 'var(--bg-raised)' }}>
+          <div style={{ maxWidth: 'var(--page-max)', margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 24 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
+              <img src="assets/logo-lockup.png" alt="Radius Red Light Therapy" style={{ height: 40, width: 'auto' }} />
+              <span style={{ fontFamily: 'var(--font-sans)', fontSize: 11, textTransform: 'uppercase', letterSpacing: 'var(--tr-eyebrow)', color: 'var(--fg-3)', borderLeft: '1px solid var(--border)', paddingLeft: 20 }}>
+                Asheville, NC
+              </span>
+            </div>
+            <div style={{ fontSize: 11, color: 'var(--fg-3)', letterSpacing: 'var(--tr-eyebrow)', textTransform: 'uppercase' }}>
+              © 2026 Radius Chiropractic PLLC
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>

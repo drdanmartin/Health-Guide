@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Radius Health Guides — Print</title>
+<link rel="stylesheet" href="assets/colors_and_type.css" />
+<style>
+  :root { --page-w: 8.5in; }
+  html, body { background: white !important; color: #0A0A0B; }
+  body { font-family: var(--font-sans); font-size: 11pt; line-height: 1.45; margin: 0; }
+  .page { page-break-after: always; break-after: page; padding: 0.45in 0.5in; max-width: 8.5in; margin: 0 auto; min-height: 10.5in; position: relative; box-sizing: border-box; }
+  .page:last-child { page-break-after: auto; }
+
+  h1, h2, h3, h4 { color: #0A0A0B; font-family: var(--font-display); text-transform: uppercase; letter-spacing: -0.01em; line-height: 1.05; margin: 0 0 10pt; }
+  h1 { font-size: 48pt; font-weight: 700; }
+  h2 { font-size: 24pt; font-weight: 600; }
+  h3 { font-size: 14pt; font-weight: 600; }
+  h4 { font-size: 11pt; font-weight: 600; font-family: var(--font-sans); text-transform: none; letter-spacing: 0; }
+  p { margin: 0 0 8pt; color: #1A1A1D; }
+
+  .eyebrow { font-size: 8pt; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 600; color: #E60023; margin-bottom: 6pt; }
+  .rule-red { height: 1px; background: #E60023; width: 32pt; margin: 4pt 0 10pt; }
+  .rule-black { height: 1px; background: #0A0A0B; width: 100%; margin: 12pt 0; }
+  .mono { font-family: var(--font-mono); font-size: 9pt; color: #55555E; }
+
+  ul { margin: 0 0 10pt; padding-left: 14pt; }
+  ul li { margin-bottom: 4pt; color: #1A1A1D; }
+
+  .cover { background: #0A0A0B; color: white; display: flex; flex-direction: column; justify-content: space-between; }
+  .cover h1 { color: white; font-size: 64pt; }
+  .cover .eyebrow { color: #FF2A3D; }
+  .cover p { color: #D9D9DD; }
+  .cover .stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12pt; border-top: 1px solid #33333A; padding-top: 18pt; margin-top: 24pt; }
+  .cover .stat-row .mono { color: #B5B5BC; }
+  .cover .stat-row h4 { color: white; font-size: 11pt; }
+
+  .mode-hero { background: #0A0A0B; color: white; }
+  .mode-hero h1 { color: white; font-size: 72pt; }
+  .mode-hero .num { font-family: var(--font-display); color: #E60023; font-size: 56pt; font-weight: 700; line-height: 1; letter-spacing: -0.02em; }
+  .mode-hero .eyebrow { color: #E60023; }
+  .mode-hero p { color: #D9D9DD; }
+  .mode-hero .stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12pt; border-top: 1px solid #33333A; padding-top: 14pt; margin-top: 18pt; }
+  .mode-hero .stat-row h4 { color: white; }
+  .mode-hero .stat-row .mono { color: #B5B5BC; }
+
+  .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14pt; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 18pt; }
+
+  .panel { border: 1px solid #D9D9DD; padding: 12pt; break-inside: avoid; }
+  .panel h3 { font-size: 12pt; margin-bottom: 6pt; }
+  .panel .sub { font-size: 9pt; color: #55555E; font-style: italic; margin-bottom: 8pt; }
+  .panel ul { font-size: 10pt; padding-left: 14pt; }
+  .panel ul li { margin-bottom: 3pt; }
+
+  .phase-row { display: grid; grid-template-columns: 140pt 1fr 1fr; gap: 14pt; padding: 10pt 0; border-bottom: 1px solid #D9D9DD; break-inside: avoid; }
+  .phase-row:last-child { border-bottom: none; }
+  .phase-row .title { font-family: var(--font-display); font-size: 13pt; font-weight: 600; text-transform: uppercase; letter-spacing: -0.01em; }
+  .phase-row .label { font-size: 8pt; letter-spacing: 0.2em; text-transform: uppercase; color: #55555E; margin-bottom: 3pt; }
+
+  .rhythm { display: grid; grid-template-columns: 1fr 1fr; gap: 10pt; }
+  .rhythm .block { border: 1px solid #D9D9DD; padding: 10pt; break-inside: avoid; }
+  .rhythm .block .time { font-family: var(--font-mono); font-size: 9pt; color: #E60023; margin-bottom: 3pt; }
+  .rhythm .block h4 { font-family: var(--font-display); text-transform: uppercase; font-size: 12pt; margin-bottom: 6pt; }
+  .rhythm .block ul { font-size: 9.5pt; padding-left: 12pt; margin: 0; }
+  .rhythm .block ul li { margin-bottom: 3pt; }
+
+  .supp-row { display: grid; grid-template-columns: 1.6fr 1.2fr 2.2fr; gap: 12pt; padding: 8pt 0; border-bottom: 1px solid #D9D9DD; font-size: 10pt; break-inside: avoid; }
+  .supp-row:last-child { border-bottom: none; }
+  .supp-row .name { font-family: var(--font-display); font-weight: 600; text-transform: uppercase; font-size: 11pt; letter-spacing: -0.01em; }
+  .supp-row .timing { font-size: 9pt; letter-spacing: 0.15em; text-transform: uppercase; color: #E60023; font-weight: 600; }
+
+  .session-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10pt; margin-bottom: 14pt; }
+  .session-step { border: 1px solid #D9D9DD; padding: 8pt; break-inside: avoid; }
+  .session-step .num { font-family: var(--font-display); font-size: 20pt; font-weight: 700; color: #E60023; line-height: 1; margin-bottom: 4pt; }
+  .session-step .when { font-size: 8pt; letter-spacing: 0.2em; text-transform: uppercase; color: #55555E; margin-bottom: 4pt; }
+  .session-step .desc { font-size: 9pt; line-height: 1.35; }
+
+  .disclaimer { border-top: 2px solid #E60023; padding-top: 14pt; margin-top: 14pt; break-inside: avoid; }
+  .disclaimer h3 { font-size: 13pt; margin-bottom: 6pt; }
+  .disclaimer p { font-size: 9.5pt; color: #1A1A1D; }
+  .disclaimer ul { font-size: 9pt; }
+
+  .plan-badge { display: inline-block; padding: 3pt 8pt; font-size: 8pt; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600; border: 1px solid currentColor; }
+  .plan-silver { color: #55555E; }
+  .plan-gold { color: #9A7E3C; }
+
+  .footer-meta { position: absolute; bottom: 0.3in; left: 0.5in; right: 0.5in; display: flex; justify-content: space-between; font-size: 8pt; color: #55555E; letter-spacing: 0.1em; text-transform: uppercase; border-top: 1px solid #D9D9DD; padding-top: 6pt; }
+
+  @page { size: letter; margin: 0; }
+  @media print {
+    html, body { background: white; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .cover, .mode-hero { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+
+  /* TOC */
+  .toc-row { display: grid; grid-template-columns: 40pt 1fr 80pt; padding: 10pt 0; border-bottom: 1px solid #D9D9DD; align-items: center; }
+  .toc-row .num { font-family: var(--font-display); color: #E60023; font-size: 18pt; font-weight: 700; }
+  .toc-row .t { font-family: var(--font-display); font-size: 16pt; font-weight: 600; text-transform: uppercase; letter-spacing: -0.01em; }
+  .toc-row .sub { font-size: 9pt; color: #55555E; margin-top: 2pt; }
+  .toc-row .pg { text-align: right; font-family: var(--font-mono); font-size: 10pt; color: #55555E; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="src/shared.js"></script>
+<script src="src/modes.js"></script>
+
+<script>
+function esc(s) { return String(s).replace(/[&<>]/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;' }[c])); }
+
+function coverPage() {
+  return `<div class="page cover">
+    <div>
+      <img src="assets/logo-lockup.png" alt="" style="height: 44pt; filter: invert(1);" />
+      <div class="eyebrow" style="margin-top: 60pt;">The Dahlia Pinnacle · 5 PTx Protocols</div>
+      <h1 style="margin-top: 18pt;">Health<br/>Guides.</h1>
+      <p style="max-width: 5in; margin-top: 24pt; font-size: 12pt; line-height: 1.5;">
+        Five precision protocols. Two plan lengths. One coherent system — from the bed,
+        to the supplement box, to the plate, to the bedroom.
+      </p>
+    </div>
+    <div>
+      <div class="stat-row">
+        <div><div class="mono">Cadence</div><h4>2× / week · 15 min</h4></div>
+        <div><div class="mono">Silver</div><h4>60-day plan</h4></div>
+        <div><div class="mono">Gold</div><h4>90-day plan</h4></div>
+        <div><div class="mono">Modes</div><h4>5 PTx protocols</h4></div>
+      </div>
+    </div>
+  </div>`;
+}
+
+function tocPage() {
+  const modes = Object.values(window.MODES);
+  const rows = modes.map((m, i) => `
+    <div class="toc-row">
+      <div class="num">${m.number}</div>
+      <div>
+        <div class="t">${esc(m.name)}</div>
+        <div class="sub">${esc(m.tagline)} · ${esc(m.wavelength)}</div>
+      </div>
+      <div class="pg">Silver · Gold</div>
+    </div>
+  `).join('');
+
+  return `<div class="page">
+    <div class="eyebrow">Contents</div>
+    <h2 style="margin-top: 12pt;">Five protocols.<br/>Ten guides.</h2>
+    <p style="max-width: 5in; margin-top: 14pt;">Each mode is documented twice — a 60-day Silver plan and a 90-day Gold plan. Same spine; Gold extends with two additional phases and deeper integration.</p>
+    <div style="margin-top: 28pt;">${rows}</div>
+
+    <div style="margin-top: 32pt;">
+      <div class="eyebrow">Every plan includes</div>
+      <div class="rule-red"></div>
+      <ul style="columns: 2; column-gap: 24pt;">
+        ${window.SHARED.supplements.map(s => `<li><strong>${esc(s.name)}</strong></li>`).join('')}
+        <li><strong>Drink HRW Rejuvenation H₂ Hydrogen Water Tablets</strong></li>
+        <li><strong>Delta-wave binaural beats during session</strong></li>
+      </ul>
+    </div>
+
+    <div style="margin-top: 24pt; border: 2px solid #E60023; padding: 14pt; display: grid; grid-template-columns: 110pt 1fr; gap: 14pt; align-items: center;">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?data=https%3A%2F%2Fwww.amazon.com%2Fs%3Fk%3Dearth%2Bharmony%2Bmethylene%2Bblue&size=280x280&margin=0" alt="QR" style="width: 110pt; height: 110pt; display: block;" />
+      <div>
+        <div class="eyebrow">Pre-session · Order</div>
+        <h3 style="margin-top: 6pt; margin-bottom: 6pt;">Earth Harmony Methylene Blue</h3>
+        <p style="font-size: 10pt; margin: 0;">Scan the QR or visit amazon.com and search "Earth Harmony Methylene Blue". Take 30–45 min before each session. Do <strong>NOT</strong> combine with SSRIs/MAOIs. Discuss with primary physician before taking.</p>
+      </div>
+    </div>
+  </div>`;
+}
+
+function preArrivalPage() {
+  const pa = window.SHARED.preArrival;
+  const items = pa.interim.items.map((it, i) => `
+    <div style="display: grid; grid-template-columns: 32pt 1fr; gap: 12pt; padding: 12pt 0; border-bottom: 1px solid #D9D9DD; break-inside: avoid;">
+      <div class="mono" style="padding-top: 2pt;">${String(i+1).padStart(2,'0')}</div>
+      <div>
+        <div style="font-family: var(--font-display); font-size: 14pt; font-weight: 600; text-transform: uppercase; letter-spacing: -0.01em; margin-bottom: 4pt;">${esc(it.name)}</div>
+        <div style="font-size: 9pt; letter-spacing: 0.15em; text-transform: uppercase; color: #E60023; font-weight: 600; margin-bottom: 5pt;">${esc(it.timing)}</div>
+        <div style="font-size: 10pt; color: #1A1A1D; line-height: 1.45;">${esc(it.role)}</div>
+      </div>
+    </div>
+  `).join('');
+
+  return `<div class="page">
+    <div class="eyebrow">${esc(pa.eyebrow)}</div>
+    <h2 style="margin-top: 12pt;">${esc(pa.title)}</h2>
+    <div class="rule-red"></div>
+
+    <div style="display: grid; grid-template-columns: 1.2fr 2fr; gap: 28pt; margin-top: 24pt; align-items: start;">
+      <div style="border-left: 1px solid #E60023; padding-left: 16pt;">
+        <div class="mono" style="margin-bottom: 8pt;">Delivery window</div>
+        <div style="font-family: var(--font-display); font-size: 48pt; font-weight: 700; letter-spacing: -0.02em; line-height: 1; color: #E60023;">${esc(pa.shippingWindow)}</div>
+        <div class="mono" style="margin-top: 6pt;">Days to arrival</div>
+      </div>
+      <div>
+        <p style="font-size: 11pt; line-height: 1.5;">${esc(pa.shippingNote)}</p>
+        <p style="font-size: 11pt; line-height: 1.5; font-weight: 600; margin-top: 10pt;"><span style="color: #E60023;">→ </span>${esc(pa.onArrival)}</p>
+      </div>
+    </div>
+
+    <div style="margin-top: 36pt; border: 1px solid #D9D9DD; padding: 18pt 20pt;">
+      <div class="eyebrow" style="color: #E60023;">Interim / Bridge</div>
+      <h3 style="margin-top: 8pt;">${esc(pa.interim.title)}</h3>
+      <p style="max-width: 5.2in; font-size: 10.5pt; margin-bottom: 6pt;">${esc(pa.interim.lede)}</p>
+      <div style="margin-top: 10pt;">${items}</div>
+    </div>
+
+    <div style="margin-top: 22pt; font-size: 9pt; color: #55555E; line-height: 1.5;">
+      Begin the bridge protocol on the day you place your order. When the Radius Super Stack arrives, open the box and transition to the full stack described on the foundation page of your mode guide.
+    </div>
+  </div>`;
+}
+
+function modePage(mode, duration) {
+  const phases = mode.phases[duration];
+  const planLabel = duration === 'silver' ? 'Silver · 60-Day' : 'Gold · 90-Day';
+  const planClass = duration === 'silver' ? 'plan-silver' : 'plan-gold';
+
+  const heroPage = `<div class="page mode-hero">
+    <div>
+      <div style="display:flex; align-items:baseline; gap:18pt; margin-bottom: 10pt;">
+        <div class="num">${mode.number}</div>
+        <div class="eyebrow">PTx Protocol · ${planLabel}</div>
+      </div>
+      <h1>${esc(mode.name)}</h1>
+      <p style="font-size: 14pt; max-width: 5in; margin-top: 14pt;">${esc(mode.tagline)}</p>
+
+      <div style="margin-top: 36pt;">
+        <div class="eyebrow">Mechanism</div>
+        <p style="font-size: 11pt; max-width: 6in; margin-top: 8pt;">${esc(mode.mechanism)}</p>
+        <p style="font-style: italic; color: #B5B5BC; margin-top: 12pt;">"${esc(mode.mantra)}"</p>
+      </div>
+
+      <div class="stat-row">
+        <div><div class="mono">Wavelengths</div><h4>${esc(mode.wavelength)}</h4></div>
+        <div><div class="mono">Cadence</div><h4>2× / week · 15 min</h4></div>
+        <div><div class="mono">Plan</div><h4>${planLabel}</h4></div>
+        <div><div class="mono">Duration</div><h4>${duration === 'silver' ? '60 days' : '90 days'}</h4></div>
+      </div>
+    </div>
+  </div>`;
+
+  // Session + Phases
+  const sessionSteps = [
+    { n: '01', t: '30–45 min before', d: 'Earth Harmony methylene blue as directed.' + (mode.id === 'skin' ? ' Apply Renue Blue topicals ≥60 min prior (not day-of).' : '') },
+    { n: '02', t: 'Arrive & settle', d: 'Rejuvenation H₂ tablet in 16 oz filtered water. Queue delta-wave binaural beats.' },
+    { n: '03', t: '15 minutes in-bed', d: `${mode.name} mode (${mode.wavelength}). Eyes closed, nasal breath.` },
+    { n: '04', t: '5 min post-bed', d: 'Vibration-plate therapy — activates lymph, amplifies PBM.' },
+    { n: '05', t: '30 min after', d: 'Continue H₂ water. Protein-forward meal within 60 minutes.' },
+  ];
+
+  const protocolPage = `<div class="page">
+    <div class="eyebrow">${esc(mode.name)} · ${planLabel}</div>
+    <h2 style="margin-top: 10pt;">Session-day protocol</h2>
+    <div class="rule-red"></div>
+    <div class="session-grid">
+      ${sessionSteps.map(s => `<div class="session-step">
+        <div class="num">${s.n}</div>
+        <div class="when">${esc(s.t)}</div>
+        <div class="desc">${esc(s.d)}</div>
+      </div>`).join('')}
+    </div>
+
+    <h2 style="margin-top: 24pt; font-size: 20pt;">Phased plan</h2>
+    <div class="rule-red"></div>
+    <div>
+      ${phases.map((p, i) => `<div class="phase-row">
+        <div>
+          <div class="label">Phase ${String(i+1).padStart(2,'0')}</div>
+          <div class="title">${esc(p.name)}</div>
+        </div>
+        <div>
+          <div class="label">Goal</div>
+          <div style="font-size: 10.5pt;">${esc(p.goal)}</div>
+        </div>
+        <div>
+          <div class="label">Key moves</div>
+          <ul style="padding-left: 14pt; font-size: 10pt; margin: 0;">
+            ${p.keys.map(k => `<li>${esc(k)}</li>`).join('')}
+          </ul>
+        </div>
+      </div>`).join('')}
+    </div>
+    <div class="footer-meta">
+      <span>Radius Red Light Therapy</span>
+      <span>${esc(mode.name)} · ${planLabel}</span>
+    </div>
+  </div>`;
+
+  // Daily rhythm + mode-specific inputs
+  const rhythmBlocks = window.SHARED.dailyRhythm.map(b => `
+    <div class="block">
+      <div class="time">${esc(b.block)}</div>
+      <h4>${esc(b.title)}</h4>
+      <ul>${b.items.map(i => `<li>${esc(i)}</li>`).join('')}</ul>
+    </div>
+  `).join('');
+
+  const inputsPage = `<div class="page">
+    <div class="eyebrow">${esc(mode.name)} · Daily rhythm</div>
+    <h2 style="margin-top: 10pt;">Your day, structured</h2>
+    <div class="rule-red"></div>
+    <div class="rhythm">${rhythmBlocks}</div>
+
+    <h2 style="margin-top: 24pt; font-size: 20pt;">Mode-specific inputs</h2>
+    <div class="rule-red"></div>
+    <div class="three-col">
+      <div class="panel">
+        <h3>Nutrition</h3>
+        <div class="sub">Organic. Non-GMO. Anti-inflammatory.</div>
+        <ul>${mode.nutrition.map(x => `<li>${esc(x)}</li>`).join('')}</ul>
+      </div>
+      <div class="panel">
+        <h3>Exercise</h3>
+        <div class="sub">Movement for this mode.</div>
+        <ul>${mode.exercise.map(x => `<li>${esc(x)}</li>`).join('')}</ul>
+      </div>
+      <div class="panel">
+        <h3>Supplement emphasis</h3>
+        <div class="sub">Accents to the full stack.</div>
+        <ul>${mode.supplementEmphasis.map(x => `<li>${esc(x)}</li>`).join('')}</ul>
+      </div>
+    </div>
+    ${mode.renueBlue ? `
+    <div class="panel" style="margin-top: 14pt; border-color: #E60023; border-width: 2px;">
+      <div class="eyebrow">Topical protocol</div>
+      <h3 style="margin-top: 4pt;">${esc(mode.renueBlue.title)}</h3>
+      <ul>${mode.renueBlue.items.map(i => `<li>${esc(i)}</li>`).join('')}</ul>
+    </div>` : ''}
+    <div class="footer-meta">
+      <span>Radius Red Light Therapy</span>
+      <span>${esc(mode.name)} · ${planLabel}</span>
+    </div>
+  </div>`;
+
+  // Stack + Practices + Disclaimer
+  const practicesEntries = Object.values(window.SHARED.practices);
+  const stackPage = `<div class="page">
+    <div class="eyebrow">${esc(mode.name)} · Foundation</div>
+    <h2 style="margin-top: 10pt;">Radius Super Stack</h2>
+    <div class="rule-red"></div>
+    <p style="font-size: 10pt; max-width: 5.5in;">Every plan includes these. Follow the label on each product — the timing column indicates when in the day to take them.</p>
+    <div style="margin-top: 10pt;">
+      ${window.SHARED.supplements.map((s, i) => `<div class="supp-row">
+        <div>
+          <div class="mono" style="font-size: 8pt;">${String(i+1).padStart(2,'0')}</div>
+          <div class="name">${esc(s.name)}</div>
+        </div>
+        <div class="timing">${esc(s.timing)}</div>
+        <div>${esc(s.role)}</div>
+      </div>`).join('')}
+    </div>
+
+    <h2 style="margin-top: 22pt; font-size: 18pt;">Practice library</h2>
+    <div class="rule-red"></div>
+    <div class="three-col">
+      ${practicesEntries.map(p => `<div class="panel">
+        <h3>${esc(p.title)}</h3>
+        <ul>${p.lines.map(l => `<li>${esc(l)}</li>`).join('')}</ul>
+      </div>`).join('')}
+    </div>
+    <div class="panel" style="margin-top: 10pt;">
+      <h3>${esc(window.SHARED.nutritionBase.title)}</h3>
+      <ul>${window.SHARED.nutritionBase.lines.map(l => `<li>${esc(l)}</li>`).join('')}</ul>
+    </div>
+
+    <div class="disclaimer">
+      <div class="eyebrow">Important · Not medical advice</div>
+      <h3>Read before you begin.</h3>
+      <div class="two-col">
+        <div>
+          <p>${esc(window.SHARED.disclaimer.short)}</p>
+          <p style="font-size: 9pt; color: #55555E;">The Radius ${esc(mode.name)} protocol is designed for generally healthy adults. It is not intended to diagnose, treat, cure, or prevent any disease. If anything here conflicts with your physician, defer to your physician.</p>
+        </div>
+        <div>
+          <div class="eyebrow">Contraindications</div>
+          <ul style="padding-left: 14pt;">
+            ${window.SHARED.disclaimer.contraindications.map(c => `<li>${esc(c)}</li>`).join('')}
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-meta">
+      <span>Radius Red Light Therapy</span>
+      <span>${esc(mode.name)} · ${planLabel}</span>
+    </div>
+  </div>`;
+
+  return heroPage + protocolPage + inputsPage + stackPage;
+}
+
+function render() {
+  const modes = Object.values(window.MODES);
+  let html = coverPage() + tocPage() + preArrivalPage();
+  for (const plan of ['silver', 'gold']) {
+    for (const m of modes) {
+      html += modePage(m, plan);
+    }
+  }
+  html += ipPage();
+  document.getElementById('root').innerHTML = html;
+}
+
+function ipPage() {
+  return `<div class="page cover">
+    <div>
+      <img src="assets/logo-lockup.png" alt="" style="height: 36pt; filter: invert(1);" />
+      <div class="eyebrow" style="margin-top: 40pt;">Intellectual Property · Disclaimers</div>
+      <h2 style="color: white; margin-top: 14pt;">Legal &amp; credits.</h2>
+
+      <div style="margin-top: 28pt; border-top: 1px solid #33333A; padding-top: 18pt;">
+        <div class="eyebrow" style="color: #FF2A3D;">Copyright &amp; Trademarks</div>
+        <p style="color: #D9D9DD; font-size: 10pt; max-width: 6in; margin-top: 8pt;">
+          © 2026 Radius Chiropractic PLLC. All rights reserved. Radius™, Radius Red Light Therapy™, Radius Super Stack™, and The Protocol™ are trademarks of Radius Chiropractic PLLC.
+        </p>
+        <p style="color: #D9D9DD; font-size: 10pt; max-width: 6in; margin-top: 8pt;">
+          No part of this guide may be reproduced, distributed, resold, or transmitted in any form or by any means — electronic, mechanical, photocopying, recording, or otherwise — without the prior written permission of Radius Chiropractic PLLC. Unauthorized use is strictly prohibited.
+        </p>
+      </div>
+
+      <div style="margin-top: 24pt; border-top: 1px solid #33333A; padding-top: 18pt;">
+        <div class="eyebrow" style="color: #FF2A3D;">Third-Party Trademark Acknowledgements</div>
+        <p style="color: #D9D9DD; font-size: 10pt; max-width: 6in; margin-top: 8pt;">
+          Dr. Mercola® is a registered trademark of Dr. Joseph Mercola. Pure Encapsulations® and Renual® are registered trademarks of Pure Encapsulations, LLC. Earth Harmony™ and its methylene blue formulations are trademarks of Earth Harmony Naturals. Renue Blue™ is a trademark of its respective owner. Drink HRW™ and Rejuvenation™ hydrogen water tablets are trademarks of Natural Wellness Now Health Products, Inc. Toniiq® is a registered trademark of Toniiq, Inc. Dahlia Health™ and Dahlia Pinnacle™ are trademarks of Dahlia Health, Inc.
+        </p>
+        <p style="color: #D9D9DD; font-size: 10pt; max-width: 6in; margin-top: 8pt;">
+          All third-party trademarks are the property of their respective owners. Use of these names does not imply endorsement, affiliation, or sponsorship.
+        </p>
+        <p style="color: #D9D9DD; font-size: 10pt; max-width: 6in; margin-top: 8pt;">
+          Guided practice videos referenced in this guide are the intellectual property of their respective creators: Wim Hof (Wim Hof Method®), Master Faye Yip / Li Hui, Dr. Melissa Gallagher (Lymphatic Therapy Services), and Stanley Rosenberg. Linked with attribution for educational reference only; Radius Chiropractic PLLC is not affiliated with and does not endorse these creators.
+        </p>
+      </div>
+
+      <div style="margin-top: 24pt; border-top: 2px solid #E60023; padding-top: 18pt;">
+        <div class="eyebrow" style="color: white;">Educational Use — Not Medical Advice</div>
+        <p style="color: #D9D9DD; font-size: 10pt; max-width: 6in; margin-top: 8pt;">
+          The information in this guide is intended for educational purposes only and is not a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or other qualified health provider with any questions you may have. Never disregard professional medical advice or delay in seeking it because of something you have read in this guide.
+        </p>
+      </div>
+    </div>
+
+    <div>
+      <div class="stat-row">
+        <div><div class="mono">Version</div><h4>2026.04</h4></div>
+        <div><div class="mono">Location</div><h4>Asheville, NC</h4></div>
+        <div><div class="mono">Distribution</div><h4>Members only</h4></div>
+        <div><div class="mono">Contact</div><h4>radiusredlight.com</h4></div>
+      </div>
+    </div>
+  </div>`;
+}
+
+render();
+
+// Auto-print once ready
+(async () => {
+  try { if (document.fonts && document.fonts.ready) await document.fonts.ready; } catch(e){}
+  await new Promise(r => setTimeout(r, 600));
+  window.print();
+})();
+</script>
+</body>
+</html>

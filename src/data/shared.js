@@ -11,7 +11,7 @@ export const SHARED = {
       items: [
         {
           name: "Dr. Mercola NAC + Milk Thistle",
-          timing: "Morning, empty stomach — daily",
+          timing: "Morning, with food — daily",
           role: "Glutathione precursor + hepatic support. Opens Phase II detox pathways ahead of the full stack.",
         },
         {
@@ -35,7 +35,7 @@ export const SHARED = {
   supplements: [
     {
       name: "Dr. Mercola NAC + Milk Thistle",
-      timing: "Morning, empty stomach",
+      timing: "Morning, with food",
       role: "Glutathione precursor + hepatic support. Primes Phase II detox before photobiomodulation.",
     },
     {
@@ -66,6 +66,22 @@ export const SHARED = {
       linkLabel: "Order on Amazon",
     },
   ],
+
+  superStack: {
+    eyebrow: "Inside the Box",
+    title: "The 8 capsules",
+    lede: "Each bottle in the Radius Super Stack works on a different part of your mitochondria — together, they keep the engine running and amplify every red-light session.",
+    items: [
+      { n: "01", name: "Alpha Lipoic Acid",          dose: "1 capsule", time: "AM with food", role: "Helps your mitochondria turn food into energy and recharges your other antioxidants.", image: "/assets/stack-ala.png" },
+      { n: "02", name: "L-Carnitine",                dose: "1 capsule", time: "AM with food", role: "Carries fat into your mitochondria so it can be burned for energy instead of stored.", image: "/assets/stack-carnitine.png" },
+      { n: "03", name: "Magnesium",                  dose: "1 capsule", time: "PM with food", role: "Every ATP molecule your body uses needs magnesium to actually work — it's the spark.", image: "/assets/stack-magnesium.png" },
+      { n: "04", name: "CoQ10",                      dose: "1 capsule", time: "AM with food", role: "The exact molecule red light therapy targets — boosts the energy your sessions produce.", image: "/assets/stack-coq10.png" },
+      { n: "05", name: "NR (Nicotinamide Riboside)", dose: "1 capsule", time: "AM with food", role: "Raises NAD+, the fuel your mitochondria run on. Levels naturally drop with age.", image: "/assets/stack-nr.png" },
+      { n: "06", name: "Methyl B-Complex",           dose: "1 capsule", time: "AM with food", role: "The B vitamins your energy-production cycle can't run without — pre-activated for absorption.", image: "/assets/stack-methylb.png" },
+      { n: "07", name: "Vitamin B12",                dose: "1 capsule", time: "AM with food", role: "Active form of B12 for sustained energy, red blood cells, and nerve function.", image: "/assets/stack-b12.png" },
+      { n: "08", name: "Trace Minerals",             dose: "1 capsule", time: "PM with food", role: "Zinc, selenium, copper, manganese, chromium, iodine — the metal cofactors your enzymes need to actually work.", image: "/assets/stack-trace.png" },
+    ],
+  },
 
   dailyRhythm: [
     {

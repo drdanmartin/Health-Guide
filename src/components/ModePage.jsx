@@ -38,6 +38,34 @@ function InputCard({ title, subtitle, items }) {
   );
 }
 
+function StackCapsule({ c }) {
+  const isPM = c.time && c.time.toUpperCase().includes('PM');
+  return (
+    <div style={{ background: 'var(--bg-card)', padding: '28px 24px', display: 'flex', flexDirection: 'column' }}>
+      <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: 16 }}>
+        <div style={{ fontFamily: 'var(--font-display)', color: 'var(--accent)', fontSize: 24, fontWeight: 700, letterSpacing: '-0.02em' }}>{c.n}</div>
+        <div style={{
+          display: 'inline-block',
+          padding: '4px 10px',
+          fontFamily: 'var(--font-sans)', fontSize: 10, fontWeight: 700,
+          letterSpacing: 'var(--tr-eyebrow)', textTransform: 'uppercase',
+          color: isPM ? 'var(--fg-1)' : 'var(--white)',
+          background: isPM ? 'var(--ink-700)' : 'var(--accent)',
+          border: isPM ? '1px solid var(--border)' : '1px solid var(--accent)',
+        }}>
+          {c.time}
+        </div>
+      </div>
+      <div style={{ aspectRatio: '1 / 1', background: 'var(--bg-raised)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 16, overflow: 'hidden' }}>
+        <img src={c.image} alt={c.name} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+      </div>
+      <div style={{ fontFamily: 'var(--font-display)', fontSize: 18, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '-0.01em', marginBottom: 6, lineHeight: 1.15 }}>{c.name}</div>
+      <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--fg-3)', marginBottom: 12 }}>{c.dose}</div>
+      <div style={{ color: 'var(--fg-2)', fontSize: 13, lineHeight: 1.5 }}>{c.role}</div>
+    </div>
+  );
+}
+
 export function ModePage({ modeId, duration, onBack, modes }) {
   const mode = modes[modeId];
   const phases = mode.phases[duration];
@@ -211,9 +239,35 @@ export function ModePage({ modeId, duration, onBack, modes }) {
           </div>
           <div style={{ maxWidth: '70ch', marginBottom: 40 }}>
             <p className="lede" style={{ margin: 0 }}>
-              Every plan includes these. Follow the label on each product — the timing column below indicates when in the day to take them, not specific doses.
+              {SHARED.superStack?.lede || 'Every plan includes these. Follow the label on each product — the timing column below indicates when in the day to take them, not specific doses.'}
             </p>
           </div>
+
+          {/* 8-capsule grid */}
+          {SHARED.superStack?.items && (
+            <div style={{ marginBottom: 56 }}>
+              <Eyebrow style={{ marginBottom: 18 }}>{SHARED.superStack.eyebrow || 'Inside the Box'}</Eyebrow>
+              <h3 style={{ fontSize: 'clamp(24px, 2.4vw, 36px)', margin: '0 0 28px' }}>
+                {SHARED.superStack.title || 'The 8 capsules'}
+              </h3>
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+                gap: 2,
+                background: 'var(--border-subtle)',
+              }}>
+                {SHARED.superStack.items.map((c, i) => (
+                  <StackCapsule key={i} c={c} />
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Other supplements table */}
+          <Eyebrow style={{ marginBottom: 18 }}>Companion supplements</Eyebrow>
+          <h3 style={{ fontSize: 'clamp(24px, 2.4vw, 36px)', margin: '0 0 28px' }}>
+            Taken alongside the Stack
+          </h3>
           <div style={{ display: 'grid', gap: 2, background: 'var(--border-subtle)' }}>
             {SHARED.supplements.map((s, i) => (
               <div key={i} style={{ background: 'var(--bg-card)', padding: '24px 28px', display: 'grid', gridTemplateColumns: '2fr 1.5fr 3fr', gap: 32, alignItems: 'start' }}>

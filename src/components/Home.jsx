@@ -50,7 +50,16 @@ function PreArrivalBanner() {
               <h3 style={{ fontFamily: 'var(--font-display)', fontSize: 28, fontWeight: 600, letterSpacing: '-0.01em', lineHeight: 1.1, margin: 0, marginBottom: 16, textTransform: 'uppercase' }}>
                 {pa.interim.title}
               </h3>
-              <p style={{ color: 'var(--fg-2)', fontSize: 14, lineHeight: 1.6, margin: 0 }}>{pa.interim.lede}</p>
+              <p style={{ color: 'var(--fg-2)', fontSize: 14, lineHeight: 1.6, margin: 0, marginBottom: 16 }}>{pa.interim.lede}</p>
+
+              <div style={{ background: 'rgba(230, 0, 35, 0.08)', border: '1px solid var(--accent)', padding: '16px 18px', marginTop: 12 }}>
+                <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: 'var(--tr-eyebrow)', textTransform: 'uppercase', color: 'var(--accent)', fontWeight: 700, marginBottom: 8 }}>
+                  Hold
+                </div>
+                <p style={{ color: 'var(--fg-1)', fontSize: 13, lineHeight: 1.5, margin: 0 }}>
+                  Wait to begin taking <strong>Toniiq PQQ</strong> and <strong>Pure Encapsulations Renual</strong> until the Radius Super Stack arrives — they are designed to work with the Stack, not before it.
+                </p>
+              </div>
             </div>
 
             <div style={{ display: 'grid', gap: 1, background: 'var(--border-subtle)' }}>
@@ -78,8 +87,15 @@ function PreArrivalBanner() {
   );
 }
 
+function planMeta(duration) {
+  if (duration === 'accelerator') return { label: 'Accelerator · 45-day' };
+  if (duration === 'silver') return { label: 'Silver · 60-day' };
+  return { label: 'Gold · 90-day' };
+}
+
 function ModeCard({ mode, duration, onClick }) {
   const [hover, setHover] = useState(false);
+  const { label } = planMeta(duration);
   return (
     <div
       onClick={onClick}
@@ -112,7 +128,7 @@ function ModeCard({ mode, duration, onClick }) {
         <div>
           <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--fg-3)', letterSpacing: '0.04em' }}>{mode.wavelength}</div>
           <div style={{ fontSize: 12, color: 'var(--fg-3)', marginTop: 4, textTransform: 'uppercase', letterSpacing: 'var(--tr-eyebrow)' }}>
-            {duration === 'silver' ? '60-day · Silver' : '90-day · Gold'}
+            {label}
           </div>
         </div>
         <div style={{ fontFamily: 'var(--font-sans)', fontSize: 11, letterSpacing: 'var(--tr-eyebrow)', textTransform: 'uppercase', color: hover ? 'var(--accent)' : 'var(--fg-2)', transition: 'color var(--dur-fast) var(--ease-out)' }}>
@@ -150,7 +166,7 @@ export function Home({ onPick, duration, setDuration }) {
               Health <br /> Guides.
             </h1>
             <p className="lede" style={{ fontSize: 20, maxWidth: '58ch' }}>
-              Five precision protocols. Two plan lengths. One coherent system — from
+              Five precision protocols. Three plan lengths. One coherent system — from
               the bed, to the supplement box, to the plate, to the bedroom.
             </p>
             <div style={{ marginTop: 8 }}>

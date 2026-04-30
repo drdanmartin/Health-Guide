@@ -28,16 +28,21 @@ export const MODES = {
       "PQQ — morning, amplifies mitochondrial biogenesis in muscle.",
     ],
     phases: {
+      accelerator: [
+        { name: "Days 1–15 · Reset", goal: "Strip inflammation hard. Sessions begin 4× weekly.", keys: ["Cut seed oils, sugar, gluten, alcohol immediately", "8 sessions in first two weeks", "10hr eating window day 1, 8hr by day 7"] },
+        { name: "Days 16–30 · Mobilize", goal: "Fat oxidation accelerates fast. Resistance + Zone 2 daily.", keys: ["4×/wk resistance, 4×/wk Zone 2 (e.g. 45-min full-body lifts; 45-min uphill walk)", "Weekly progress photos + waist/hip measurement", "Cold shower 3× week — 60–90 sec cold finish"] },
+        { name: "Days 31–45 · Compose", goal: "Visible body-composition change. Metabolic flexibility locks in.", keys: ["Add one weekly hill walk or incline-treadmill session (no sprinting required)", "Re-measure circumference + body-fat", "Plan maintenance cadence"] },
+      ],
       silver: [
         { name: "Weeks 1–2 · Reset", goal: "Eliminate dietary inflammation, establish the 2× weekly session cadence.", keys: ["Cut seed oils, sugar, gluten, alcohol", "First 4 red light sessions", "10hr eating window"] },
-        { name: "Weeks 3–5 · Mobilize", goal: "Shift from sugar-burning to fat-burning. Add resistance training.", keys: ["8hr eating window", "3× resistance, 4× Zone 2", "Track fasting glucose + ketones 2× week"] },
+        { name: "Weeks 3–5 · Mobilize", goal: "Shift from sugar-burning to fat-burning. Add resistance training.", keys: ["8hr eating window", "3× resistance, 4× Zone 2 (e.g. 45-min full-body lifts; 45-min nasal-breath walk)", "Track fasting glucose + ketones 2× week"] },
         { name: "Weeks 6–8 · Compose", goal: "Body-composition change becomes visible. Lock in habits.", keys: ["Progressive overload in lifts", "Cold exposure post-workout", "Re-measure circumference + body-fat"] },
       ],
       gold: [
-        { name: "Weeks 1–2 · Reset", goal: "Strip inflammation, establish baselines, 2× weekly sessions begin.", keys: ["Full dietary overhaul", "Baseline DEXA or InBody if available", "10hr eating window"] },
-        { name: "Weeks 3–5 · Mobilize", goal: "Ignite fat oxidation. Resistance training enters.", keys: ["8hr eating window", "3× resistance, 4× Zone 2", "Blood glucose monitoring"] },
-        { name: "Weeks 6–8 · Compose", goal: "Visible body-composition change; refine inputs based on data.", keys: ["Add one weekly sprint session", "Cold plunge 3× week", "Circumference measurements"] },
-        { name: "Weeks 9–11 · Deepen", goal: "Advanced protocols. Metabolic flexibility sharpens.", keys: ["6hr eating window 2× per week", "Heavier lifting (5×5)", "One 24hr fast in this phase"] },
+        { name: "Weeks 1–2 · Reset", goal: "Strip inflammation, establish baselines, 2× weekly sessions begin.", keys: ["Full dietary overhaul", "Review your initial-appointment Styku body-composition scan as your baseline", "10hr eating window"] },
+        { name: "Weeks 3–5 · Mobilize", goal: "Ignite fat oxidation. Resistance training enters.", keys: ["8hr eating window", "3× resistance, 4× Zone 2 (e.g. 45-min full-body lifts; 45-min nasal-breath walk)", "Blood glucose monitoring"] },
+        { name: "Weeks 6–8 · Compose", goal: "Visible body-composition change; refine inputs based on data.", keys: ["Add one weekly hill walk or incline-treadmill session (no sprinting required)", "Cold shower 3× week — finish your normal shower with 60–90 seconds cold", "Circumference measurements"] },
+        { name: "Weeks 9–11 · Deepen", goal: "Advanced protocols. Metabolic flexibility sharpens.", keys: ["6hr eating window 2× per week", "Heavier lifting (5×5 — e.g. 5 sets × 5 reps of squat, deadlift, bench, row at ~80% effort)", "One 24hr fast in this phase"] },
         { name: "Weeks 12–13 · Sustain", goal: "Transition to maintenance without backsliding.", keys: ["8hr window default, flex to 10hr socially", "Lock session cadence at 2× week", "Re-measure, re-baseline, re-plan"] },
       ],
     },
@@ -74,14 +79,19 @@ export const MODES = {
       "NAC + Milk Thistle — glutathione support for DOMS and systemic recovery.",
     ],
     phases: {
+      accelerator: [
+        { name: "Days 1–15 · Unload", goal: "Deload hard, sleep is the intervention.", keys: ["8+ hours sleep, strict window", "8 sessions in first two weeks", "Cut alcohol, caffeine after 12pm"] },
+        { name: "Days 16–30 · Rebuild", goal: "Tissue turnover accelerates. Mobility and HRV climb together.", keys: ["Daily mobility 15 min", "Cold/contrast 3× week (e.g. 3 min hot shower → 1 min cold, repeat 3 rounds)", "HRV tracking critical"] },
+        { name: "Days 31–45 · Resilient", goal: "Return to full training load with a recovered nervous system.", keys: ["Resume full intensity", "Sauna 2× week if available", "Retest baselines"] },
+      ],
       silver: [
         { name: "Weeks 1–2 · Unload", goal: "Decrease systemic load. Sleep becomes non-negotiable.", keys: ["8+ hours sleep, strict window", "2× weekly sessions begin", "Zero alcohol, zero late meals"] },
-        { name: "Weeks 3–5 · Rebuild", goal: "Tissue repair accelerates. Mobility work enters.", keys: ["Daily mobility 15 min", "Cold/contrast 2× week", "HRV tracking recommended"] },
+        { name: "Weeks 3–5 · Rebuild", goal: "Tissue repair accelerates. Mobility work enters.", keys: ["Daily mobility 15 min", "Cold/contrast 2× week (e.g. 3 min hot shower → 1 min cold, repeat 3 rounds)", "HRV tracking recommended"] },
         { name: "Weeks 6–8 · Resilient", goal: "Return to full training load with a recovered nervous system.", keys: ["Resume full intensity on lifts", "Sauna 2× week if available", "Retest baselines"] },
       ],
       gold: [
         { name: "Weeks 1–2 · Unload", goal: "Total deload. Sleep is the intervention.", keys: ["8+ hours sleep", "Sessions begin 2× weekly", "Cut alcohol, caffeine after 12pm"] },
-        { name: "Weeks 3–5 · Rebuild", goal: "Tissue turnover accelerates. Mobility and nutrition lock in.", keys: ["Daily mobility", "HRV tracking", "Cold/contrast 2× week"] },
+        { name: "Weeks 3–5 · Rebuild", goal: "Tissue turnover accelerates. Mobility and nutrition lock in.", keys: ["Daily mobility", "HRV tracking", "Cold/contrast 2× week (e.g. 3 min hot shower → 1 min cold, repeat 3 rounds)"] },
         { name: "Weeks 6–8 · Strengthen", goal: "Controlled re-introduction of load.", keys: ["Return to 80% intensity", "Sauna 2× week", "Continue bone broth daily"] },
         { name: "Weeks 9–11 · Compound", goal: "Full-spectrum protocol. Body handles more without breaking down.", keys: ["Full training load", "Cold plunge 3× week", "One long restorative session weekly"] },
         { name: "Weeks 12–13 · Integrate", goal: "Make recovery automatic. The habits persist after the program.", keys: ["Fix the weak link that emerged", "Plan the next training block", "Retest HRV, sleep data"] },
@@ -120,6 +130,11 @@ export const MODES = {
       "NAC + Milk Thistle — anti-inflammatory + glutathione for oxidative burden.",
     ],
     phases: {
+      accelerator: [
+        { name: "Days 1–15 · Calm", goal: "Maximum anti-inflammatory environment. Pain mapping begins.", keys: ["8 sessions in first two weeks", "Nightshade elimination", "Pain/sleep journal daily"] },
+        { name: "Days 16–30 · Desensitize", goal: "Nervous system retraining accelerates. Pain-free range expands.", keys: ["Gentle yoga 3× week", "Breathwork 2× daily", "Cold exposure daily (face-dunk or shower)"] },
+        { name: "Days 31–45 · Load", goal: "Reintroduce controlled loading without flare-ups.", keys: ["Reintroduce nightshades one at a time", "Strength at 50–60%", "Reassess pain journal trend"] },
+      ],
       silver: [
         { name: "Weeks 1–2 · Calm", goal: "Reduce systemic inflammation aggressively. Map the pain.", keys: ["Sessions 2× weekly begin", "Nightshade elimination", "Pain journal — when, where, intensity 1–10"] },
         { name: "Weeks 3–5 · Move", goal: "Expand pain-free range. Nervous system retrains.", keys: ["Add gentle yoga 2× week", "Walks up to 45 min", "Vagal work 2× daily"] },
@@ -176,6 +191,11 @@ export const MODES = {
       "Plus the Renue Blue Skin Supplements — see topical regimen above.",
     ],
     phases: {
+      accelerator: [
+        { name: "Days 1–15 · Clear", goal: "Strip glycating inputs hard. Renue Blue regimen begins immediately.", keys: ["Zero sugar, alcohol, seed oils", "8 sessions in first two weeks", "Photo baseline under consistent lighting"] },
+        { name: "Days 16–30 · Signal", goal: "Fibroblasts activate fast. Tone evens.", keys: ["Collagen peptides + bone broth daily", "Renue Blue full regimen", "Mid-program photo series"] },
+        { name: "Days 31–45 · Texture", goal: "Texture and fine-line response. Barrier rebuilt.", keys: ["Re-photograph under same lighting", "Add targeted Renue Blue on specific areas", "Maintenance regimen drafted"] },
+      ],
       silver: [
         { name: "Weeks 1–2 · Clear", goal: "Strip glycating inputs. Establish the Renue Blue regimen.", keys: ["Cut sugar and alcohol completely", "Renue Blue AM/PM begins", "Photo baseline under consistent lighting"] },
         { name: "Weeks 3–5 · Signal", goal: "Fibroblasts activate. Initial tone improvements visible.", keys: ["Sessions 2× weekly", "Collagen peptides daily", "Consistent sleep is critical"] },
@@ -223,6 +243,11 @@ export const MODES = {
       "PQQ — capillary density and mitochondrial biogenesis in vascular tissue.",
     ],
     phases: {
+      accelerator: [
+        { name: "Days 1–15 · Prime", goal: "Strip vascular stressors. Daily lymph movement.", keys: ["Cut seed oils, alcohol, refined sugar", "Daily rebounder 10 min", "8 sessions in first two weeks"] },
+        { name: "Days 16–30 · Flow", goal: "NO production climbs. Cold extremities warm.", keys: ["Zone 2 4× week", "NO-dense foods daily", "Cold contrast 3× week"] },
+        { name: "Days 31–45 · Deliver", goal: "Perfusion reaches starved tissue. Resting HR drops.", keys: ["Add one weekly sprint or hill session", "Long slow walk 90+ min weekly", "Re-measure HR, BP, extremity temp"] },
+      ],
       silver: [
         { name: "Weeks 1–2 · Prime", goal: "Strip vascular stressors. Lymphatic work daily.", keys: ["Cut seed oils and alcohol", "Rebounder 10 min daily", "Sessions 2× weekly begin"] },
         { name: "Weeks 3–5 · Flow", goal: "Nitric oxide climbs. Extremities warm.", keys: ["Zone 2 4× week", "Beets/arugula daily", "Cold contrast 2× week"] },

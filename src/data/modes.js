@@ -1,0 +1,541 @@
+/* =============================================================
+   Radius Health Guides — Mode-specific content
+   5 PTx modes × shared structure.
+   Plans: 45-day = Accelerator (4×/wk), 60-day = Silver (2×/wk),
+          90-day = Gold (2×/wk).
+   ============================================================= */
+
+window.MODES = {
+
+  // ============================================================
+  // 01 — WEIGHT LOSS
+  // ============================================================
+  weightLoss: {
+    id: 'weightLoss',
+    number: '01',
+    name: 'Weight Loss PTx™',
+    emoji: '🔥',
+    tagline: 'Body composition. Fat mobilization. Metabolic flexibility.',
+    wavelength: '630 + 660 + 850 + 940nm — tuned mix',
+    focus: 'Adipocyte shrinkage, mitochondrial respiration in muscle, metabolic signaling.',
+    image: 'assets/pinnacle-bed-with-model.jpg',
+    mechanism: 'A tuned combination of all four wavelengths (630, 660, 850, 940nm) — optimized via Dahlia’s onboard algorithms and sensor-driven adjustments — creates transient pores in adipocyte membranes, releasing intracellular lipids for oxidation. Paired with vibration-plate activation of slow-twitch fibers and a low-insulin eating window, this becomes a coordinated fat-mobilization protocol — not a light show.',
+
+    nutrition: [
+      "Protein-forward: 1g per pound of lean body mass, pasture-raised meat, wild-caught fish, pastured eggs.",
+      "Time-restricted feeding: 8-hour eating window (e.g. 11am–7pm). Silver: start at 10hr, work down. Gold: extend to 6hr in final phase.",
+      "Carbohydrates from roots, berries, and fermented dairy — not grains. Low-glycemic load.",
+      "Zero seed oils, zero refined sugar, zero ultra-processed anything. Non-negotiable.",
+      "Electrolyte replenishment during fasting window — no excuses for cramps or fatigue.",
+    ],
+
+    exercise: [
+      "Zone 2 cardio (brisk walk, nasal breathing only): 45 minutes, 4× per week.",
+      "Resistance training: 3× per week, compound lifts, progressive overload.",
+      "Post-session vibration plate + 10-minute walk is mandatory — amplifies lipid oxidation.",
+      "One weekly 'long & slow' — 90+ minute walk at true conversational pace.",
+      "No chronic cardio. No fasted HIIT.",
+    ],
+
+    supplementEmphasis: [
+      "L-Carnitine (in the Radius Super Stack) — pre-exercise, 30 min before Zone 2.",
+      "ALA (in the Radius Super Stack) — with first meal; improves insulin sensitivity.",
+      "PQQ — morning, amplifies mitochondrial biogenesis in muscle.",
+    ],
+
+    phases: {
+      accelerator: [
+        {
+          name: "Days 1–15 · Strip & Ignite",
+          goal: "Aggressive removal of inflammatory inputs. 4× weekly sessions begin immediately.",
+          keys: ["Cut seed oils, sugar, gluten, alcohol — day one", "8 sessions in 15 days", "10hr → 8hr eating window by day 15"],
+        },
+        {
+          name: "Days 16–30 · Mobilize",
+          goal: "Fat oxidation accelerates fast. Resistance + Zone 2 daily.",
+          keys: ["4× sessions weekly continues", "3× resistance + 4× Zone 2 (e.g. 45-min full-body lifts; brisk uphill walk)", "Weekly progress photos + waist/hip measurement"],
+        },
+        {
+          name: "Days 31–45 · Compose",
+          goal: "Visible body-composition change. Lock the new baseline.",
+          keys: ["Progressive overload in lifts", "Cold exposure post-workout", "Re-measure circumference + body-fat"],
+        },
+      ],
+      silver: [
+        {
+          name: "Weeks 1–2 · Reset",
+          goal: "Eliminate dietary inflammation, establish the 2× weekly session cadence.",
+          keys: ["Cut seed oils, sugar, gluten, alcohol", "First 4 red light sessions", "10hr eating window"],
+        },
+        {
+          name: "Weeks 3–5 · Mobilize",
+          goal: "Shift from sugar-burning to fat-burning. Add resistance training.",
+          keys: ["8hr eating window", "3× resistance, 4× Zone 2 (e.g. 45-min full-body lifts; 45-min nasal-breath walk)", "Track fasting glucose + ketones 2× week"],
+        },
+        {
+          name: "Weeks 6–8 · Compose",
+          goal: "Body-composition change becomes visible. Lock in habits.",
+          keys: ["Progressive overload in lifts", "Cold exposure post-workout", "Re-measure circumference + body-fat"],
+        },
+      ],
+      gold: [
+        {
+          name: "Weeks 1–2 · Reset",
+          goal: "Strip inflammation, establish baselines, 2× weekly sessions begin.",
+          keys: ["Full dietary overhaul", "Review your initial-appointment Styku body-composition scan as your baseline", "10hr eating window"],
+        },
+        {
+          name: "Weeks 3–5 · Mobilize",
+          goal: "Ignite fat oxidation. Resistance training enters.",
+          keys: ["8hr eating window", "3× resistance, 4× Zone 2 (e.g. 45-min full-body lifts; 45-min nasal-breath walk)", "Blood glucose monitoring"],
+        },
+        {
+          name: "Weeks 6–8 · Compose",
+          goal: "Visible body-composition change; refine inputs based on data.",
+          keys: ["Add one weekly hill walk or incline-treadmill session (no sprinting required)", "Cold shower 3× week — finish your normal shower with 60–90 seconds cold", "Circumference measurements"],
+        },
+        {
+          name: "Weeks 9–11 · Deepen",
+          goal: "Advanced protocols. Metabolic flexibility sharpens.",
+          keys: ["6hr eating window 2× per week", "Heavier lifting (5×5 — e.g. 5 sets × 5 reps of squat, deadlift, bench, row at ~80% effort)", "One 24hr fast in this phase"],
+        },
+        {
+          name: "Weeks 12–13 · Sustain",
+          goal: "Transition to maintenance without backsliding.",
+          keys: ["8hr window default, flex to 10hr socially", "Lock session cadence at 2× week", "Re-measure, re-baseline, re-plan"],
+        },
+      ],
+    },
+
+    mantra: "Burn clean. Build dense. Move daily.",
+  },
+
+  // ============================================================
+  // 02 — RECOVERY
+  // ============================================================
+  recovery: {
+    id: 'recovery',
+    number: '02',
+    name: 'Recovery PTx™',
+    emoji: '⚡',
+    tagline: 'Post-training. Inflammation. Sleep architecture.',
+    wavelength: '630 + 660 + 850 + 940nm — NIR/IR weighted',
+    focus: 'Muscle tissue repair, inflammatory resolution, parasympathetic restoration.',
+    image: 'assets/pinnacle-bed-open.jpg',
+    mechanism: 'A balanced delivery across all four wavelengths with stronger emphasis on NIR (850nm) and full IR (940nm). Sensors adjust output dynamically as deeper wavelengths penetrate muscle and connective tissue, upregulating ATP synthesis at the site of micro-trauma. Combined with vagal work and sleep discipline, this is your nervous system recovering faster than it accumulates load.',
+
+    nutrition: [
+      "Anti-inflammatory priority: wild salmon, sardines, grass-fed beef, pastured eggs.",
+      "Bone broth daily — glycine, proline, collagen precursors.",
+      "Tart cherry, blueberries, pomegranate: polyphenol load for inflammation resolution.",
+      "Turmeric + black pepper + fat with dinner.",
+      "Fermented foods daily: sauerkraut, kefir (if tolerated), kimchi.",
+      "Meal timing: stop 3 hours before bed, always.",
+    ],
+
+    exercise: [
+      "Active recovery focus. Zone 2 walks, swim, easy bike — 30 min, 5× week.",
+      "Mobility before strength: 15 min daily of joint CARs + soft tissue work.",
+      "Resistance training at 60–70% effort, 2–3× per week. No grinding reps.",
+      "Post-session vibration plate activates lymph and clears metabolic waste.",
+      "One full rest day per week — actual rest, not 'active recovery'.",
+    ],
+
+    supplementEmphasis: [
+      "CoQ10 (in the Radius Super Stack) — morning, supports mitochondrial respiration in skeletal muscle.",
+      "Magnesium (in the Radius Super Stack) — PM, muscle relaxation + sleep onset.",
+      "NAC + Milk Thistle — glutathione support for DOMS and systemic recovery.",
+    ],
+
+    phases: {
+      accelerator: [
+        {
+          name: "Days 1–15 · Unload Hard",
+          goal: "Total deload, sleep is the intervention. 4× weekly sessions front-load tissue repair.",
+          keys: ["8+ hours sleep, strict window", "8 sessions in 15 days", "Zero alcohol, no caffeine after 12pm"],
+        },
+        {
+          name: "Days 16–30 · Rebuild",
+          goal: "Tissue turnover accelerates. Mobility and HRV climb together.",
+          keys: ["Daily mobility 15 min", "Cold/contrast 3× week (e.g. 3 min hot shower → 1 min cold, repeat 3 rounds)", "HRV tracking — expect inflection by day 25"],
+        },
+        {
+          name: "Days 31–45 · Resilient",
+          goal: "Return to full training load with a recovered nervous system.",
+          keys: ["Resume 90% intensity on lifts", "Sauna 2× week if available", "Retest baselines, plan next block"],
+        },
+      ],
+      silver: [
+        {
+          name: "Weeks 1–2 · Unload",
+          goal: "Decrease systemic load. Sleep becomes non-negotiable.",
+          keys: ["8+ hours sleep, strict window", "2× weekly sessions begin", "Zero alcohol, zero late meals"],
+        },
+        {
+          name: "Weeks 3–5 · Rebuild",
+          goal: "Tissue repair accelerates. Mobility work enters.",
+          keys: ["Daily mobility 15 min", "Cold/contrast 2× week (e.g. 3 min hot shower → 1 min cold, repeat 3 rounds)", "HRV tracking recommended"],
+        },
+        {
+          name: "Weeks 6–8 · Resilient",
+          goal: "Return to full training load with a recovered nervous system.",
+          keys: ["Resume full intensity on lifts", "Sauna 2× week if available", "Retest baselines"],
+        },
+      ],
+      gold: [
+        {
+          name: "Weeks 1–2 · Unload",
+          goal: "Total deload. Sleep is the intervention.",
+          keys: ["8+ hours sleep", "Sessions begin 2× weekly", "Cut alcohol, caffeine after 12pm"],
+        },
+        {
+          name: "Weeks 3–5 · Rebuild",
+          goal: "Tissue turnover accelerates. Mobility and nutrition lock in.",
+          keys: ["Daily mobility", "HRV tracking", "Cold/contrast 2× week (e.g. 3 min hot shower → 1 min cold, repeat 3 rounds)"],
+        },
+        {
+          name: "Weeks 6–8 · Strengthen",
+          goal: "Controlled re-introduction of load.",
+          keys: ["Return to 80% intensity", "Sauna 2× week", "Continue bone broth daily"],
+        },
+        {
+          name: "Weeks 9–11 · Compound",
+          goal: "Full-spectrum protocol. Body handles more without breaking down.",
+          keys: ["Full training load", "Cold plunge 3× week", "One long restorative session weekly"],
+        },
+        {
+          name: "Weeks 12–13 · Integrate",
+          goal: "Make recovery automatic. The habits persist after the program.",
+          keys: ["Fix the weak link that emerged", "Plan the next training block", "Retest HRV, sleep data"],
+        },
+      ],
+    },
+
+    mantra: "Rebuild better. Sleep is a protocol.",
+  },
+
+  // ============================================================
+  // 03 — PAIN
+  // ============================================================
+  pain: {
+    id: 'pain',
+    number: '03',
+    name: 'Pain PTx™',
+    emoji: '🦴',
+    tagline: 'Joint. Muscular. Chronic inflammation.',
+    wavelength: '850 + 940nm — deep penetration',
+    focus: 'Inflammatory resolution, nitric-oxide release, neural desensitization.',
+    image: 'assets/pinnacle-bed-closeup.jpg',
+    mechanism: 'Higher intensity on the deeper-penetrating 850nm and 940nm wavelengths (with surface red 630/660nm reduced) downregulates TNF-α and IL-6 at the site of inflammation while upregulating nitric-oxide release for vasodilation. Paired with a strict anti-inflammatory diet and vagal tone work, the central nervous system learns pain does not equal threat.',
+
+    nutrition: [
+      "Eliminate nightshades for the first 4 weeks (tomato, pepper, eggplant, white potato) — reintroduce one at a time.",
+      "Omega-3 dense: sardines, wild salmon, grass-fed beef. Aim for a 2:1 or lower omega-6 ratio.",
+      "Turmeric + black pepper + fat — daily, with dinner.",
+      "Bone broth daily — at least 1 cup.",
+      "Ginger tea 2× daily (fresh root, steeped).",
+      "Strict zero: sugar, gluten, alcohol, seed oils, conventional dairy.",
+    ],
+
+    exercise: [
+      "Pain-free range only. Never push through pain.",
+      "Daily walking, 30–45 minutes, outdoors, nasal breathing.",
+      "Gentle yoga or Yin, 2–3× week.",
+      "Strength training at reduced load, focusing on joint-stabilizing patterns.",
+      "Post-session vibration plate at low frequency (20–30 Hz) — 5 minutes.",
+    ],
+
+    supplementEmphasis: [
+      "CoQ10 + Magnesium (in the Radius Super Stack) — mitochondrial support + neuromuscular.",
+      "Methyl B-complex — nerve health, myelination.",
+      "NAC + Milk Thistle — anti-inflammatory + glutathione for oxidative burden.",
+    ],
+
+    phases: {
+      accelerator: [
+        {
+          name: "Days 1–15 · Calm Aggressively",
+          goal: "Drive systemic inflammation down fast. 4× weekly sessions saturate the tissue.",
+          keys: ["8 sessions in 15 days", "Nightshade + sugar + alcohol elimination", "Pain journal — when, where, intensity 1–10"],
+        },
+        {
+          name: "Days 16–30 · Desensitize & Move",
+          goal: "Nervous system retrains. Pain-free range expands.",
+          keys: ["Gentle yoga 3× week", "Walks up to 45 min daily", "Vagal work 2× daily"],
+        },
+        {
+          name: "Days 31–45 · Load",
+          goal: "Reintroduce controlled loading without flare-up.",
+          keys: ["Reintroduce nightshades one at a time", "Resistance work resumes at 50%", "Reassess pain journal trend"],
+        },
+      ],
+      silver: [
+        {
+          name: "Weeks 1–2 · Calm",
+          goal: "Reduce systemic inflammation aggressively. Map the pain.",
+          keys: ["Sessions 2× weekly begin", "Nightshade elimination", "Pain journal — when, where, intensity 1–10"],
+        },
+        {
+          name: "Weeks 3–5 · Move",
+          goal: "Expand pain-free range. Nervous system retrains.",
+          keys: ["Add gentle yoga 2× week", "Walks up to 45 min", "Vagal work 2× daily"],
+        },
+        {
+          name: "Weeks 6–8 · Load",
+          goal: "Reintroduce controlled loading. Lock in habits.",
+          keys: ["Reintroduce nightshades one at a time", "Resistance work resumes at 50%", "Reassess pain journal"],
+        },
+      ],
+      gold: [
+        {
+          name: "Weeks 1–2 · Calm",
+          goal: "Maximum anti-inflammatory environment. Pain mapping begins.",
+          keys: ["Sessions 2× weekly", "Nightshade elimination", "Pain/sleep journal daily"],
+        },
+        {
+          name: "Weeks 3–5 · Desensitize",
+          goal: "Nervous system retraining. Vagal tone climbs.",
+          keys: ["Gentle yoga 3× week", "Breathwork 2× daily", "Cold exposure daily (face-dunk or shower)"],
+        },
+        {
+          name: "Weeks 6–8 · Move",
+          goal: "Pain-free range expands meaningfully.",
+          keys: ["Walks 45–60 min daily", "Strength at 50–60%", "Reintroduce foods one at a time"],
+        },
+        {
+          name: "Weeks 9–11 · Load",
+          goal: "Controlled loading — joints under tension without reactivation.",
+          keys: ["Progressive strength work", "Add one mobility class weekly", "Monitor pain journal trend"],
+        },
+        {
+          name: "Weeks 12–13 · Integrate",
+          goal: "Sustain gains. Know your personal triggers cold.",
+          keys: ["Personal trigger list finalized", "Maintenance cadence established", "Plan for flare-up response"],
+        },
+      ],
+    },
+
+    mantra: "Calm the system. Restore the range.",
+  },
+
+  // ============================================================
+  // 04 — SKIN
+  // ============================================================
+  skin: {
+    id: 'skin',
+    number: '04',
+    name: 'Skin PTx™',
+    emoji: '✨',
+    tagline: 'Collagen. Tone. Texture. Resilience.',
+    wavelength: '630nm body + 660nm face',
+    focus: 'Fibroblast activation, collagen and elastin synthesis, barrier repair.',
+    image: 'assets/pinnacle-bed-open-2.jpg',
+    mechanism: 'Visible red is prioritized — 630nm for the body and 660nm for the face — directly stimulating dermal fibroblasts to produce type-I and type-III collagen. Deeper wavelengths (850/940nm) are reduced so surface energy density stays high. Paired with a targeted topical regimen and collagen-forward nutrition, you are giving the skin both the signal and the raw material.',
+
+    renueBlue: {
+      title: "Renue Blue topical regimen",
+      items: [
+        "Renue Blue Face Serum — AM and PM, clean dry skin, before moisturizer.",
+        "Renue Blue Body Cream — after every shower, while skin is still damp.",
+        "Renue Blue Skin Supplements — with breakfast, label directions.",
+        "Apply methylene blue topicals at least 60 minutes before a red light session to avoid the blue chromophore competing with 633nm absorption.",
+      ],
+    },
+
+    nutrition: [
+      "Collagen peptides daily — 20g in morning bone broth or water.",
+      "Vitamin C-dense whole foods with every meal (kiwi, bell pepper, citrus, dark leafy greens).",
+      "Pastured egg yolks daily — biotin, choline, sulfur for skin structure.",
+      "Wild salmon or sardines 3× week — omega-3s for barrier lipid membranes.",
+      "Eliminate sugar, alcohol, seed oils — all three glycate collagen.",
+      "Hydration: half body-weight in ounces of filtered water + H₂ tablet.",
+    ],
+
+    exercise: [
+      "Daily walking outside — morning sun (5–10 min) drives healthy melanin and circadian rhythm.",
+      "Moderate resistance training 3× week for circulation.",
+      "Avoid chronic high-cortisol cardio — it accelerates collagen breakdown.",
+      "Post-session vibration plate improves dermal microcirculation.",
+      "Mineral sunscreen (zinc oxide) for any sun beyond 15 minutes.",
+    ],
+
+    supplementEmphasis: [
+      "Trace Minerals (in the Radius Super Stack) — silica, zinc, copper for collagen cross-linking.",
+      "Vitamin B12 + Methyl B (in the Radius Super Stack) — cellular turnover.",
+      "Nicotinamide Riboside — supports NAD+ for fibroblast function.",
+      "Plus the Renue Blue Skin Supplements — see topical regimen above.",
+    ],
+
+    phases: {
+      accelerator: [
+        {
+          name: "Days 1–15 · Clear & Saturate",
+          goal: "Strip glycating inputs. 4× weekly sessions saturate dermal fibroblasts.",
+          keys: ["Zero sugar, alcohol, seed oils — day one", "8 sessions in 15 days", "Renue Blue AM/PM + photo baseline"],
+        },
+        {
+          name: "Days 16–30 · Signal",
+          goal: "Fibroblasts stay activated. Tone evens visibly.",
+          keys: ["Collagen peptides + bone broth daily", "Sleep window strict — repair happens here", "Mid-program photo, same lighting"],
+        },
+        {
+          name: "Days 31–45 · Texture",
+          goal: "Texture and barrier respond. Lock in the regimen.",
+          keys: ["Final photo series", "Targeted Renue Blue on specific areas", "Plan post-accelerator maintenance cadence"],
+        },
+      ],
+      silver: [
+        {
+          name: "Weeks 1–2 · Clear",
+          goal: "Strip glycating inputs. Establish the Renue Blue regimen.",
+          keys: ["Cut sugar and alcohol completely", "Renue Blue AM/PM begins", "Photo baseline under consistent lighting"],
+        },
+        {
+          name: "Weeks 3–5 · Signal",
+          goal: "Fibroblasts activate. Initial tone improvements visible.",
+          keys: ["Sessions 2× weekly", "Collagen peptides daily", "Consistent sleep is critical"],
+        },
+        {
+          name: "Weeks 6–8 · Texture",
+          goal: "Texture and fine lines respond. Barrier is rebuilt.",
+          keys: ["Re-photograph under same lighting", "Continue full regimen", "Assess areas needing targeted work"],
+        },
+      ],
+      gold: [
+        {
+          name: "Weeks 1–2 · Clear",
+          goal: "Eliminate the inputs that destroy collagen. Regimen live.",
+          keys: ["Zero sugar, alcohol, seed oils", "Renue Blue full regimen", "Photo baseline"],
+        },
+        {
+          name: "Weeks 3–5 · Signal",
+          goal: "Fibroblasts activate. Tone evens.",
+          keys: ["Sessions 2× weekly", "Collagen peptides + bone broth daily", "Early tone improvements visible"],
+        },
+        {
+          name: "Weeks 6–8 · Texture",
+          goal: "Fine-line and texture responses accelerate.",
+          keys: ["Re-photograph", "Add targeted Renue Blue on specific areas", "Barrier feels noticeably stronger"],
+        },
+        {
+          name: "Weeks 9–11 · Remodel",
+          goal: "Deeper dermal remodeling. Firmness.",
+          keys: ["Continue full protocol", "Assess jawline, neck, hands", "Gold regimen is visible to others at this point"],
+        },
+        {
+          name: "Weeks 12–13 · Resilience",
+          goal: "Lock in a maintenance regimen that holds the result.",
+          keys: ["Final photo series", "Maintenance cadence: 1–2× weekly", "Topical regimen continues indefinitely"],
+        },
+      ],
+    },
+
+    mantra: "Clear the inputs. Signal the cells. Rebuild the matrix.",
+  },
+
+  // ============================================================
+  // 05 — CIRCULATION
+  // ============================================================
+  circulation: {
+    id: 'circulation',
+    number: '05',
+    name: 'Circulation PTx™',
+    emoji: '❤️‍🔥',
+    tagline: 'Vascular. Lymphatic. Nitric oxide.',
+    wavelength: '630 + 660 + 850 + 940nm — full spectrum',
+    focus: 'Endothelial nitric-oxide release, capillary density, lymphatic throughput.',
+    image: 'assets/pinnacle-bed-side-view.jpg',
+    mechanism: 'Full-spectrum delivery across all four wavelengths (630, 660, 850, 940nm) with sensor-driven adjustments triggers release of nitric oxide from hemoglobin, producing vasodilation and improved downstream perfusion. Combined with lymphatic stimulation, vagal tone work, and cardiovascular rhythm, this rebuilds the delivery system that feeds every other system.',
+
+    nutrition: [
+      "Nitric-oxide foods daily: beets, arugula, spinach, celery.",
+      "Dark chocolate (85%+), pomegranate, berries — flavonoids for endothelium.",
+      "Wild fatty fish 3× week — omega-3s for membrane fluidity.",
+      "Garlic and ginger daily — vasodilatory and anti-platelet-aggregation.",
+      "Eliminate: seed oils, refined sugar, alcohol. All three damage endothelium directly.",
+      "Electrolyte balance matters — sodium is not the enemy; industrial sodium is.",
+    ],
+
+    exercise: [
+      "Zone 2 cardio 4–5× week, 45 minutes, strict nasal breathing.",
+      "Resistance training 3× week — pumps the venous return system.",
+      "Rebounder 10 min daily — non-negotiable for lymphatic throughput.",
+      "Cold contrast therapy: 3 min hot / 1 min cold × 3 rounds, 2× week.",
+      "One weekly 'long & slow' — 90+ min walk, true conversational.",
+    ],
+
+    supplementEmphasis: [
+      "L-Carnitine (in the Radius Super Stack) — myocardial energetics.",
+      "CoQ10 (in the Radius Super Stack) — cardiovascular mitochondrial support.",
+      "Nicotinamide Riboside — endothelial function via NAD+.",
+      "PQQ — capillary density and mitochondrial biogenesis in vascular tissue.",
+    ],
+
+    phases: {
+      accelerator: [
+        {
+          name: "Days 1–15 · Prime",
+          goal: "Strip vascular stressors. Move lymph daily. 4× weekly sessions begin.",
+          keys: ["Cut seed oils, alcohol, refined sugar", "Rebounder 10 min daily", "8 sessions in 15 days"],
+        },
+        {
+          name: "Days 16–30 · Flow",
+          goal: "Nitric oxide climbs. Cold extremities warm. Resting HR drops.",
+          keys: ["Zone 2 4× week", "NO-dense foods daily (beets, arugula)", "Cold contrast 3× week"],
+        },
+        {
+          name: "Days 31–45 · Deliver",
+          goal: "Perfusion is measurably better. Energy reflects it.",
+          keys: ["Re-measure baselines (HR, BP, extremity temp)", "Add one weekly sprint session", "Long slow walk 90+ min weekly"],
+        },
+      ],
+      silver: [
+        {
+          name: "Weeks 1–2 · Prime",
+          goal: "Strip vascular stressors. Lymphatic work daily.",
+          keys: ["Cut seed oils and alcohol", "Rebounder 10 min daily", "Sessions 2× weekly begin"],
+        },
+        {
+          name: "Weeks 3–5 · Flow",
+          goal: "Nitric oxide climbs. Extremities warm.",
+          keys: ["Zone 2 4× week", "Beets/arugula daily", "Cold contrast 2× week"],
+        },
+        {
+          name: "Weeks 6–8 · Deliver",
+          goal: "Perfusion is measurably better. Energy reflects it.",
+          keys: ["Morning resting HR should be dropping", "Continue full protocol", "Extremity warmth noticeable"],
+        },
+      ],
+      gold: [
+        {
+          name: "Weeks 1–2 · Prime",
+          goal: "Strip vascular stressors. Move lymph every day.",
+          keys: ["Cut seed oils, alcohol, refined sugar", "Daily rebounder", "Sessions 2× weekly begin"],
+        },
+        {
+          name: "Weeks 3–5 · Flow",
+          goal: "NO production climbs. Cold extremities warm.",
+          keys: ["Zone 2 4× week", "NO-dense foods daily", "Cold contrast 2× week"],
+        },
+        {
+          name: "Weeks 6–8 · Deliver",
+          goal: "Perfusion reaches tissue that has been starved.",
+          keys: ["Resting HR dropping", "Extremity warmth returns", "Sleep deepens"],
+        },
+        {
+          name: "Weeks 9–11 · Expand",
+          goal: "Capillary density improves. Cardiovascular efficiency climbs.",
+          keys: ["Add one weekly sprint session", "Contrast therapy 3× week", "Long slow walk 90+ min weekly"],
+        },
+        {
+          name: "Weeks 12–13 · Sustain",
+          goal: "Lock the gains. Circulatory health is a keystone.",
+          keys: ["Re-measure baselines (HR, BP, extremity temp)", "Maintenance cadence 2× week holds", "Lymphatic work becomes lifelong habit"],
+        },
+      ],
+    },
+
+    mantra: "Open the system. Feed every cell.",
+  },
+
+};
